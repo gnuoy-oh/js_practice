@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 2-1</title>
+	
+	<style>
+		body{
+			font-size: 12px;
+			color: #333;
+		}
+	</style>
+</head>
+
+<body>
+	<label for="inpNumber">숫자를 입력해주세요.</label>
+	<input id="inpNumber" type="text"/>
+	<button type="button" id="btnNumber">입력</button>
+
+	<p id="textPara">과연 짝수인가 홀수인가</p>
+
+	<!-- 
+		1. 입력받은 숫자가 홀수인지 짝수인지를 알려주는 프로그램을 작성해 봅시다.
+	 -->
+
+	<script type="text/javascript">
+
+		(function() {
+
+			let btnNumber = document.querySelector("#btnNumber");
+
+			btnNumber.addEventListener('click', function () {
+
+				let number = document.querySelector("#inpNumber").value;
+				let txtItem = document.querySelector("#textPara");
+				console.log(number);
+
+				if(isNaN(number)) {
+					txtItem.innerHTML = "숫자만 입력하시지요";
+				}else{
+					if(number % 2 === 0) {
+						txtItem.innerHTML = "입력하신 숫자는 짝수입니다.";
+					}else{
+						txtItem.innerHTML = "입력하신 숫자는 홀수입니다.";
+					}
+				}
+				return number;
+			})
+		})();
+
+	</script>
+</body>
+
+</html>

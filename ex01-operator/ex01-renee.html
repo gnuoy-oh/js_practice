@@ -1,0 +1,162 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"><!-- 2019-05-13 추가 -->
+    <title>실습1 연산자</title>
+    <style>
+        p {margin:0;}
+        table{border-spacing:0;border-collapse:collapse}
+        [class*='item'] {margin:20px auto 0;width:720px;background-color:#fff;border:1px solid #ddd;font-size:15px;line-height:1.5;}
+        [class*='item'] label {line-height:30px;}
+        [class*='item'] input {border:1px solid #ddd;width:50px;height:24px;line-height:24px;padding:0 10px;font-size:15px;}
+        [class*='item'] label + input,[class*='item'] input + label {margin-left:10px;}
+        [class*='item'] button{height:26px;border-radius:0;background:none;vertical-align:top;}
+        .tit_comm {display:block;padding:20px;background-color:#f8f8f8;font-weight:normal;font-size:17px;line-height:1.5;}
+        .group_comm {padding:20px;}
+        .tbl_comm {border:1px solid #ddd;}
+        .tbl_comm th, .tbl_comm td{border-top:1px solid #ddd;}
+        .tbl_comm tr:first-childe th, .tbl_comm tr:first-childe td {border-top:0;}
+        .tbl_comm th {padding:5px;background-color:#f8f8f8;border-right:1px solid #ddd;}
+        .tbl_comm td {padding:5px;}
+
+        .item_operation .tbl_comm {margin-top:10px;}
+        .group_operation {margin-top:10px;width:200px;border:1px solid #ddd;background:#f8f8f8;}
+        .group_operation p {padding:5px;}
+
+        .desc_bmi {display:none;}
+        .desc_bmi.show {display:block;}
+    </style>
+</head>
+<body>
+    <div class="item_operation">
+        <strong class="tit_comm">1. 두 수를 입력받아 4칙연산의 결과를 표시해 봅시다.</strong>
+        <div class="group_comm">
+            <label for="inpNum01">숫자1</label><input type="number" id="inpNum01">
+            <label for="inpNum02">숫자2</label><input type="number" id="inpNum02">
+            <button type="button" id="btnOperationResult">=</button>
+            <table class="tbl_comm">
+                <colgroup>
+                    <col style="width:50px;">
+                    <col style="width:100px;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>+</th>
+                        <td><span id="plusResult"></span></td>
+                    </tr>
+                    <tr>
+                        <th>-</th>
+                        <td><span id="minusResult"></span></td>
+                    </tr>
+                    <tr>
+                        <th>*</th>
+                        <td><span id="multiResult"></span></td>
+                    </tr>
+                    <tr>
+                        <th>/</th>
+                        <td><span id="divideResult"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="item_bmi">
+        <strong class="tit_comm">2. BMI를 계산하는 프로그램을 작성해 봅시다.</strong>
+        <div class="group_comm">
+            <p>비만 계산 방법은 신체질량지수인 BMI(Body Mass Index)에 <br>근거한 방식으로 BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))이다</p>
+            <label for="inpWeight">몸무게</label><input type="number" id="inpWeight">
+            <label for="inpHeight">신장</label><input type="number" id="inpHeight">
+            <button type="button" id="btnBmiResult">=</button>
+            <p>BMI 지수 : <span id="bmiResult"></span></p>
+            <ul class="list_comm">
+                <li>고도 비만 : 40 이상</li>
+                <li>중등도 비만 (2단계 비만) : 35 - 39.9</li>
+                <li>경도 비만 (1단계 비만) : 30 - 34.9</li>
+                <li>과체중 : 25 - 29.9</li>
+                <li>정상 : 18.5 - 24.9</li>
+                <li>저체중 : 18.5 미만</li>
+            </ul>
+            <p class="desc_bmi">당신은 <span id="descBmiResult"></span></p>
+        </div>
+    </div>
+    <div class="item_length">
+        <strong class="tit_comm">4. 입력한 문자열의 길이를 알려주는 프로그램을 작성해 봅시다.</strong>
+        <div class="group_comm">
+            <input type="text" id="inpTxt">
+            <button type="button" id="btnLengthResult">Button</button>
+            <p>당신이 입력한 문자열의 길이는 <span class="num_length"></span>입니다.</p>
+        </div>
+    </div>
+    <script>
+        var varName = 10; // 전역변수
+        
+        // IIFE 패턴 : 함수내에서 변수가 선언되면 : 지역변수 
+        (function(){
+            // 익명함수 
+            console.log('Hello'); // 1. 자동완성 검색해서 적용해오기
+            console.log('test');  // branch ex01-renee02 test
+
+            var OperationResult = document.querySelector("#btnOperationResult"),
+                BmiResult = document.querySelector("#btnBmiResult"),
+                LengthResult = document.querySelector("#btnLengthResult");
+
+            // 1. 두 수를 입력받아 4칙연산의 결과를 표시해 봅시다.
+            function operation(){
+                var inpNum01 = Number(document.querySelector('#inpNum01').value); // querySelector : 첫 번째 요소를 반환
+                var inpNum02 = Number(document.querySelector('#inpNum02').value);
+                document.querySelector('#plusResult').innerHTML = inpNum01 + inpNum02;
+                document.querySelector('#minusResult').innerHTML = inpNum01 - inpNum02;
+                document.querySelector('#multiResult').innerHTML = inpNum01 * inpNum02;
+                document.querySelector('#divideResult').innerHTML = (inpNum01 / inpNum02).toFixed(1);
+            }
+            OperationResult.addEventListener("click", operation);
+
+            // 2. BMI를 계산하는 프로그램을 작성해 봅시다.
+            function showBmiResult(value) {
+                var bmiResultDesc = document.querySelector("#descBmiResult");
+                    bmiResultShow = bmiResultDesc.parentNode;
+
+                bmiResultShow.classList.remove("show");
+                bmiResultShow.classList.add("show");
+                
+                if(!isNaN(value)) {
+                    if (value >= 40) {
+                        bmiResultDesc.innerHTML = "고도 비만입니다.";
+                    } else if (value >= 35 && value <= 39.9) {
+                        bmiResultDesc.innerHTML = "중등도 비만입니다.";
+                    } else if (value >= 30 && value <= 34.9) {
+                        bmiResultDesc.innerHTML = "경도 비만입니다.";
+                    } else if (value >= 25 && value <= 29.9) {
+                        bmiResultDesc.innerHTML = "과체중입니다.";
+                    } else if (value >= 18.5 && value <= 24.9) {
+                        bmiResultDesc.innerHTML = "정상입니다.";
+                    } else if (18.5 > value) {
+                        bmiResultDesc.innerHTML = "저체중입니다.";
+                    } 
+                } else {
+                    bmiResultDesc.innerHTML = "다시 입력해주세요.";
+                }
+            }
+            function operationBmi(){
+                var weight = Number(document.querySelector('#inpWeight').value),
+                    height = Number(document.querySelector('#inpHeight').value) / 100,
+                    bmiValue = (weight / (height * height)).toFixed(1);
+
+                document.querySelector('#bmiResult').innerHTML = bmiValue;
+                showBmiResult(bmiValue);
+            }
+            BmiResult.addEventListener("click", operationBmi);
+
+            // 4. 입력한 문자열의 길이를 알려주는 프로그램을 작성해 봅시다.
+            function lengthText(){
+                var text = document.querySelector('#inpTxt').value.length;
+                document.querySelector('.num_length').innerHTML = text;
+            }
+            LengthResult.addEventListener("click", lengthText);
+        })();
+        
+    </script>
+</body>
+</html>

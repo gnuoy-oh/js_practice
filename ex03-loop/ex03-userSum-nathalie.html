@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 3-1</title>
+	<style>
+		.container{
+			text-align: center;
+		}
+		label {
+			font-size: 12px;
+			color: #333;
+		}
+		p[class*="text"] {
+			margin-top: 30px;
+			font-size: 12px;
+			color: #333;
+		}
+		p + p {
+			margin-top: 10px !important;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- 1. 사용자가 입력한 수들의 갯수와 합을 구하는 프로그램을 작성해 봅시다. (단 0을 입력받으면 입력 종료) -->
+	<div class="container">
+		<label for="inpNumber">숫자를 넣어주세용</label>
+		<input type="text" id="inpNumber">
+		<button type="button" id="btnNumber">입력</button>
+
+		<p class="text_sum" id="textSum"></p>
+		<p class="text_length" id="textLength"></p>
+	</div>
+
+	<script type="text/javascript">
+
+		(function () {
+
+			var btnNum = document.querySelector("#btnNumber");
+			var textSum = document.querySelector("#textSum");
+			var textLength = document.querySelector("#textLength");
+			
+			
+			var arrNum = [];
+			
+
+			btnNum.addEventListener('click', function () {
+				var inpValue = document.querySelector("#inpNumber").value;
+				var sumNum = 0;
+				
+				arrNum.push(Number(inpValue));
+				for (var i = 0; i < arrNum.length; i++) {
+					sumNum += arrNum[i];
+				}
+				textSum.innerHTML = `사용자가 입력한 숫자의 합은 ${sumNum} 입니다.`
+				textLength.innerHTML = `사용자가 입력한 숫자는 총 ${arrNum.length} 개 입니다.`
+
+				console.log(`사용자가 입력한 숫자의 합은 ${sumNum} 입니다.`);
+				console.log(`사용자가 입력한 숫자는 총 ${arrNum.length} 개 입니다.`)
+
+			})
+
+		})()
+	</script>
+</body>
+
+
+</html>

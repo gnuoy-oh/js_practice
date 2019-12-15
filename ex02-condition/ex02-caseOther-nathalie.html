@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 2-2</title>
+	<style>
+		body {
+			font-size: 12px;
+			color: #333;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- 
+		2. 입력받은 문자가 대문자로 되어 있으면 '대문자 문장입니다.' 소문자로 되어 있으면 '소문자 문장입니다.
+		' 그 외에는 '보통 문장입니다.' 라고 출력하는 프로그램을 작성해 보세요.
+	 -->
+	<script type="text/javascript">
+
+		// input value 값 가져와서 문자 구분
+		function printCase() {
+			let str = prompt("영어 문장 입력해 주세요.");
+			let ustr = str.toUpperCase();
+			let lstr = str.toLowerCase();
+			if (str === ustr) {
+				console.log("대문자 문장입니다.");
+			} else if (str === lstr) {
+				console.log("소문자 문장입니다.");
+			} else {
+				console.log("일반 문장입니다.");
+			}
+		}
+
+		//init
+		function init() {
+			printCase();
+		}
+
+		init()
+
+
+	</script>
+</body>
+
+</html>

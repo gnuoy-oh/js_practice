@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 1-2</title>
+	<style>
+
+			body{
+				font-size: 12px;
+				color: #333;
+			}
+			body p{
+				font-size: 14px;
+				font-weight: bold;
+			}
+		</style>
+		
+</head>
+<body>
+	<div>
+		<label for="inpHeight">신장(cm)</label>
+		<input type="text" id="inpHeight"/>
+		<label for="inpWeight">몸무게(kg)</label>
+		<input type="text" id="inpWeight"/>
+
+		<!-- 2019-11-25 button type modified -->
+		<button type="button" id="btnBmi">입력</button>
+
+		<p id="textPara"></p>
+	</div>
+
+	<!-- 
+		2. BMI를 계산하는 프로그램을 작성해 봅시다.
+		BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))
+	 -->
+
+	<script type="text/javascript">
+
+		// 2019-11-25 addEventListener event add 
+		(function () {
+
+			let btnBmi = document.querySelector("#btnBmi");
+
+			btnBmi.addEventListener('click', () => {
+
+				let getWeight = Number(document.querySelector('#inpWeight').value);
+				let getHeight = Number(document.querySelector('#inpHeight').value) / 100;
+				let getBmi = (getWeight / (getHeight * getHeight)).toFixed(2);
+
+				let textItem = document.querySelector('#textPara');
+
+				console.log(`BMI 지수는 ${getBmi} 입니다.`); 
+
+				if(getBmi >= 30){
+					textItem.innerHTML = `BMI지수는 ${getBmi} 입니다. <br> 비만입니다. *핵* 관리하세요.`
+				} else if(getBmi >= 25 && getBmi <= 29.9){
+					textItem.innerHTML = `BMI지수는 ${getBmi} 입니다. <br> 과체충 입니다. 관리하세요.`
+				} else if(getBmi >= 18.5 && getBmi <= 24.9){
+					textItem.innerHTML = `BMI지수는 ${getBmi} 입니다. <br> 완전 정상이에요.`
+				} else if(getBmi < 18.5) {
+					textItem.innerHTML = `BMI지수는 ${getBmi} 입니다. <br> 저체중 입니다. 많이 드세요.`
+				}
+				
+
+			})
+
+		})();
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

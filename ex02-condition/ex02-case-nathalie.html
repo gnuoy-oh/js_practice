@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 2-2</title>
+	<style>
+		body {
+			font-size: 12px;
+			color: #333;
+		}
+	</style>
+</head>
+
+<body>
+
+	<label for="inpTextEng">문장을 입력하세요</label>
+	<input id="inpTextEng" type="text" />
+	<button type="button" id="btnText">입력</button>
+
+	<p id="textPara"></p>
+	<p id="textResult"></p>
+
+	<!-- 
+		2. 입력받은 문자가 대문자로 되어 있으면 '대문자 문장입니다.' 소문자로 되어 있으면 '소문자 문장입니다.
+		' 그 외에는 '보통 문장입니다.' 라고 출력하는 프로그램을 작성해 보세요.
+	 -->
+	<script type="text/javascript">
+
+		// match() - 문자열이 정규식과 매치되는 부분을 검색하는 메소드
+
+		// input value 값 가져와서 문자 구분
+		function printCase() {
+			let textValue = document.querySelector("#inpTextEng").value;
+			let textResult = document.querySelector("#textResult");
+
+			console.log(textValue)
+			console.log(typeof textValue);
+
+			const textUpper = /[A-Z]/;
+			const textLower = /[a-z]/;
+			const textMix = /^[a-zA-Z]$/;
+			const textNumber = /^[0-9]*$/;
+
+			if(textValue.match(textUpper)){
+				textResult.innerHTML = `입력한 문장은 ${textValue}이고, 대문자 입니다.`
+			} else if(textValue.match(textLower)){
+				textResult.innerHTML = `입력한 문장은 ${textValue}이고, 소문자 입니다.`
+			} else if(textValue.match(textMix)){
+				textResult.innerHTML = `입력한 문장은 ${textValue}이고, 대,소 문자 혼합입니다.`
+			} else if(textValue.match(textNumber)){
+				textResult.innerHTML = `입력한 문장은 ${textValue}이고, 숫자입니다.`
+			} else if(!textValue.match(textLower) && !textValue.match(textUpper && !textValue.match(textMix))){
+			textResult.innerHTML = `입력한 문장은 ${textValue}이고, 다른 문자입니다.`
+			}
+
+		}
+
+		// click event 호출 
+		function bringTextValue() {
+			let btnText = document.querySelector("#btnText");
+			
+			btnText.addEventListener('click', printCase)
+		}
+
+		//init
+		function init() {
+			bringTextValue();
+		}
+
+		init()
+
+
+	</script>
+</body>
+
+</html>

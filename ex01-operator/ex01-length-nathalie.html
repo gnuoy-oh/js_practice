@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 1-4</title>
+</head>
+<body>
+
+	<p id="textPara"></p>
+
+	<!-- 
+		4. 입력한 문자열의 길이를 알려주는 프로그램을 작성해 봅시다.
+	 -->
+
+	<script type ="text/javascript">       
+
+		(function(){
+
+			function getStringLength (){
+
+			let getString = prompt("문자열을 입력해주세요");
+			let getLength = getString.length;
+
+			let textItem = document.querySelector('#textPara');
+
+			console.log(`문자열의 길이는 ${getLength} 입니다.`);
+			textItem.innerHTML = `문자열의 길이는 ${getLength} 입니다.`;
+
+			} 
+			
+			getStringLength();
+		}
+		)();
+	
+		
+
+	</script> 
+</body>
+</html>

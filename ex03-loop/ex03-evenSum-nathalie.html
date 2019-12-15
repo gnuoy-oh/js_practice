@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 3-2</title>
+	<style>
+		p[class*="text"] {
+			margin-top: 30px;
+			text-align: center;
+			font-size: 12px;
+			color: #333;
+		}
+	</style>
+</head>
+
+<body>
+
+	<p class="text_number " id="textNumber"></p>
+
+	<!-- 2. 1에서 100까지 짝수의 합을 구해 봅시다. -->
+
+	<script type="text/javascript">
+
+		(function() {
+			var number = 0;
+			for(var i = 0; i <= 100; i++) {
+				if(i % 2 === 0) {
+					number += i
+					// number = number + i 
+				}
+			}
+			document.querySelector("#textNumber").innerHTML = `1부터 100내에 짝수 총 합은 ${number} 입니다.`
+			console.log( `1부터 100내에 짝수 총 합은 ${number} 입니다.`);
+		})();
+
+
+	</script>
+</body>
+
+</html>

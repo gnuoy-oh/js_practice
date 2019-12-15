@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 1-1</title>
+</head>
+<body>
+	<p id="textPara"></p>
+	<!-- 
+		1. 두 수를 입력받아 4칙연산의 결과를 표시해 봅시다.
+	 -->
+
+	<script type ="text/javascript">    
+
+	(function(){
+	
+		function getArithmetic (){
+
+		let getNum1 = Number(prompt('1번 숫자를 입력해주세요'));
+		let getNum2 = Number(prompt('2번 숫자를 입력해주세요'));
+
+		if( getNum1 < getNum2 ){
+			console.log(`두 수의 합은 ${getNum1+getNum2}입니다.`);
+			console.log(`두 수의 빼기는 ${getNum2-getNum1}입니다.`);
+			console.log(`두 수의 곱하기는 ${getNum1*getNum2}입니다.`);
+			console.log(`두 수의 나누기는 ${(getNum2/getNum1).toFixed(2)}입니다.`);
+
+			document.write(`<p>두 수의 합은 ${getNum1+getNum2}입니다.</p>`);
+			document.write(`<p>두 수의 빼기는 ${getNum2-getNum1}입니다.</p>`);
+			document.write(`<p>두 수의 곱하기는 ${getNum1*getNum2}입니다.</p>`);
+			document.write(`<p>두 수의 나누기는 ${(getNum2/getNum1).toFixed(2)}입니다.</p>`);
+		} else{
+			console.log(`두 수의 합은 ${getNum1+getNum2}입니다.`);
+			console.log(`두 수의 빼기는 ${getNum1-getNum2}입니다.`);
+			console.log(`두 수의 곱하기는 ${getNum1*getNum2}입니다.`);
+			console.log(`두 수의 나누기는 ${(getNum1/getNum2).toFixed(2)}입니다.`);
+
+			document.write(`<p>두 수의 합은 ${getNum1+getNum2}입니다.</p>`);
+			document.write(`<p>두 수의 빼기는 ${getNum1-getNum2}입니다.</p>`);
+			document.write(`<p>두 수의 곱하기는 ${getNum1*getNum2}입니다.</p>`);
+			document.write(`<p>두 수의 나누기는 ${(getNum1/getNum2).toFixed(2)}입니다.</p>`);
+		}
+		}
+
+		console.log("HelloWorld2")
+
+		getArithmetic();		
+	}   )()
+	
+
+
+	</script> 
+</body>
+</html>

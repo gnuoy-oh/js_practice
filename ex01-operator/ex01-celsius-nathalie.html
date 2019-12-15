@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS 연습문제 1-3</title>
+</head>
+<body>
+		
+	<p id="textPara"></p>
+	<!-- 
+		3. 화씨를 입력받아서 섭씨로 바꾸는 프로그램을 작성해 봅시다.
+		(화씨온도 - 32) ÷ 1.8 = 섭씨온도
+	 -->
+
+	<script type ="text/javascript">       
+
+	(function(){
+
+		function callCelsius (){
+
+			let getTempValue = Number(prompt("화씨를 입력해주세요!"));
+
+			let conversTemp = ((getTempValue - 32) / 1.8).toFixed(2);
+			let textItem = document.querySelector('#textPara');
+
+			console.log(`섭씨 온도는 ${conversTemp} 입니다.`);
+			textItem.innerHTML = `섭씨 온도는 ${conversTemp}입니다.`;
+		
+		}
+		callCelsius();
+
+	})();
+
+	</script> 
+</body>
+</html>
