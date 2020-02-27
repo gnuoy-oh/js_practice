@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>modal</title>
+	<style>
+		body {
+			height: 100%;
+			margin: 20px;
+			text-align: center;
+			color: #262626;
+		}
+
+		button[class*='btn_'] {
+			display: block;
+			width: 100%;
+			height: 30px;
+			margin-top: 15px;
+			background: transparent;
+			border-radius: 3px;
+			border: 1px solid #999;
+			text-align: center;
+		}
+
+		button:focus,
+		input:focus {
+			background: transparent;
+		}
+
+		p[class*="text_"] {
+			font-size: 14px;
+			margin: 0;
+		}
+
+		strong[class*="text_"] {
+			display: block;
+			font-size: 20px;
+			margin-bottom: 15px;
+		}
+
+		.container_layer {
+			display: none;
+			z-index: 10;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		.container_layer.show {
+			display: block;
+		}
+
+		.container_layer:after {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+
+		.container_layer .dimmed_layer {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		.container_layer .inner_layer {
+			display: inline-block;
+			z-index: 11;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 30px 20px 20px;
+			background: #fff;
+			border-radius: 11px 11px 0 0;
+			vertical-align: middle;
+			-webkit-transform: translateY(100%);
+			transform: translateY(100%);
+			-webkit-transition: all .5s ease-in-out;
+			-moz-transition: all .5s ease-in-out;
+			-ms-transition: all .5s ease-in-out;
+			-o-transition: all .5s ease-in-out;
+			transition: all .5s ease-in-out;
+		}
+
+		.container_layer.show .inner_layer {
+			-webkit-transform: translateY(0);
+			transform: translateY(0);
+		}
+
+		.wrap_container {
+			padding: 35px 25px;
+			border: 1px solid #999;
+			border-radius: 11px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container_layer">
+		<div class="dimmed_layer"></div>
+		<div class="inner_layer">
+			<div class="layer_body">
+				<p class="text_para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nesciunt animi nostrum
+					et, perferendis
+					consequuntur eos laudantium. Error, nam adipisci?</p>
+			</div>
+			<button type="button" class="btn_close" id="btnClose">Close</button>
+		</div>
+	</div>
+	<div class="wrap_container">
+		<div class="container">
+			<div class="content_sample">
+				<strong class="text_title">
+					Lorem, ipsum.
+				</strong>
+				<p class="text_para">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta unde at repellat nam a accusamus quis
+					incidunt, ex quam animi aut itaque eligendi. Eius modi neque veritatis dignissimos necessitatibus consectetur
+					molestiae in. Alias cupiditate aliquam vel asperiores, recusandae neque. Error suscipit repellat, est vitae
+					sunt consectetur minima quos voluptate architecto necessitatibus commodi minus esse quidem debitis fugiat modi
+					aperiam libero, a ipsam voluptatum mollitia officiis! Explicabo voluptatibus tempore non libero autem
+					repellendus, voluptate harum velit. Recusandae, ipsa eum alias incidunt corporis commodi dolorem quo
+					asperiores cum fugiat debitis perferendis itaque reprehenderit, similique illum, qui in. A, quidem. Dolorum,
+					possimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sapiente? Veniam iure dicta
+					blanditiis, unde minus ipsam vitae saepe voluptate in quas aperiam modi architecto amet ea officia quaerat qui
+					nostrum commodi temporibus sequi eaque? Necessitatibus eos animi saepe cupiditate soluta voluptates deserunt
+					quas blanditiis fuga nostrum dicta, placeat, magni ratione sapiente voluptate enim esse exercitationem error
+					neque alias? Laboriosam earum ad explicabo suscipit ea mollitia unde sequi cum dolorum quod, velit amet iure
+					culpa vitae repellat maiores error nemo ex consectetur ducimus perferendis perspiciatis totam magnam at!
+					Aspernatur est ut maxime officia libero fugit quis ullam voluptatem vel, accusamus explicabo quidem repellat
+					quam deserunt minima similique, enim molestias! Voluptate provident consequuntur id qui reprehenderit ea
+					repellat odio sapiente iure, aperiam libero, pariatur sint. Fugiat tempora cum nostrum enim qui, commodi
+					doloribus maxime dignissimos adipisci cumque maiores. Itaque atque non dolore illum animi quos fugit nihil
+					dolores. Dignissimos tempore adipisci atque impedit consequatur fugiat. Architecto, quos cupiditate magni
+					quasi quod placeat labore fuga exercitationem aliquam saepe ex optio. Id deleniti, ducimus animi fuga rem
+					perspiciatis tempore sunt aliquid voluptatem praesentium eius facilis at aliquam saepe aspernatur voluptates
+					rerum provident natus. Illum exercitationem excepturi nemo. Adipisci quasi assumenda asperiores, id officia
+					aut error? Eius cupiditate rerum dolorum impedit officiis, mollitia aut nemo similique. Sit sed vel id eveniet
+					quis accusamus, voluptas fuga, cum tempore magnam tenetur magni dolorum consequatur? Ipsa ea repudiandae
+					aliquid earum hic cum non, assumenda optio ducimus alias tenetur molestias iure, reiciendis necessitatibus
+					laborum quia ad? Laudantium, hic veritatis. Itaque quia minus quasi sunt voluptates libero fuga quo vel
+					commodi quibusdam. Animi porro eius laudantium aperiam! Culpa labore quibusdam sed nisi alias voluptates,
+					architecto placeat excepturi cupiditate magnam. Et similique doloremque debitis tempora consectetur. Vel
+					corporis commodi quasi perferendis amet ipsum, dignissimos aspernatur maxime enim excepturi perspiciatis
+					deleniti facere libero soluta explicabo necessitatibus, veniam aliquid sed laudantium? Vitae, eaque. Aliquid
+					sit rerum omnis saepe quibusdam, error possimus at expedita sunt modi cupiditate inventore hic sapiente
+					delectus vel. Repellendus laudantium ad optio magni et incidunt aliquid dolorum minus odit dolores? Ex,
+					dolores, fugit sequi enim earum delectus eos inventore labore eligendi repellendus molestias, cum pariatur
+					aut. Facere dolore nam, sit earum amet voluptate culpa doloremque perferendis, consequatur nemo, aut tempore.
+					Rem molestiae aliquid laudantium excepturi ex eaque, nemo dolor? Natus recusandae facere quo aliquid ipsa
+					quasi quod ullam ea quia, sunt vero neque perferendis, quisquam tempora libero explicabo eius molestias!
+					Tempore ipsum quas cum tempora odio ducimus amet soluta. Pariatur, dicta veritatis. Adipisci totam animi
+					laborum necessitatibus dolores asperiores vero obcaecati rerum maxime, unde magni aliquam placeat
+					perspiciatis. Neque incidunt culpa ab voluptate natus eveniet consectetur, quisquam adipisci commodi corporis
+					sunt voluptatem laboriosam nesciunt placeat! Voluptatibus placeat molestiae et odit inventore! Necessitatibus
+					nemo officia tenetur ullam ex. Doloremque animi sit, voluptates corrupti voluptatum dolores, saepe itaque iure
+					nesciunt pariatur earum quas provident eligendi iusto amet blanditiis sint. Aliquam amet odio blanditiis
+					doloremque, facere recusandae delectus temporibus? Animi, earum voluptas molestias similique odit tempora
+					atque vitae commodi error consectetur repellat ipsam illo omnis aut numquam dolorem ab magnam aliquid
+					perspiciatis soluta tenetur laborum. Illum, expedita! Atque magnam odit praesentium, voluptates obcaecati quos
+					suscipit ullam repudiandae et culpa accusamus voluptate quis perferendis molestias commodi quia, modi
+					necessitatibus exercitationem amet, quo quaerat delectus dignissimos? A, aspernatur magni, est, impedit
+					obcaecati exercitationem accusamus possimus itaque pariatur facere facilis rerum deleniti inventore debitis
+					voluptate? Non aliquam impedit obcaecati id veritatis? Velit ea animi aliquid consequatur doloribus blanditiis
+					magnam quaerat possimus, reprehenderit odio accusantium numquam maxime facilis modi voluptatem explicabo iste.
+					Ipsam tempora expedita dolorum dignissimos adipisci quaerat. Reiciendis ipsam sint molestias distinctio
+					tempore ullam facilis nisi, quam quaerat molestiae dignissimos similique ipsum mollitia labore omnis! Amet,
+					aliquam, non iusto nesciunt quaerat, natus consequuntur doloremque alias neque architecto qui sint laborum
+					cumque dolores odio tenetur officia eum aperiam! Ab, praesentium! Omnis corporis autem aut sequi assumenda
+					quos. Veritatis sint autem soluta necessitatibus? Necessitatibus autem officiis quos illo laboriosam rem
+					veniam ipsam totam ex odio distinctio est modi, eligendi, accusantium exercitationem voluptatum fuga! Ut qui
+					quae itaque iure expedita nemo, ea aliquam adipisci sequi consequatur quasi temporibus voluptatem delectus.
+					Consequatur vel illum totam vitae repudiandae aut repellendus dolore eius dolor modi iusto est nostrum quasi
+					voluptas, voluptatum itaque! Harum eaque dolor facere a, consectetur repellat temporibus, eligendi ipsum
+					deserunt rerum, voluptas quas non necessitatibus aperiam natus alias! Cum vitae eligendi cupiditate iste, unde
+					reprehenderit quos dignissimos officiis officia provident dolore laboriosam debitis saepe optio pariatur
+					perspiciatis molestias ab? Cum, quaerat! Repudiandae tenetur praesentium inventore saepe explicabo fugit
+					eveniet placeat, aliquam laudantium dignissimos magni quia. Labore, necessitatibus magnam natus omnis officiis
+					consequuntur expedita numquam nesciunt inventore eius, impedit, praesentium rem ducimus odit error doloribus
+					placeat nobis? Aliquid, quia neque. Eveniet quod maiores tempora? Totam tenetur, debitis ullam earum nobis
+					dolor maiores dolorum culpa soluta laboriosam rerum facilis saepe sapiente quas ipsum magni! Eum neque,
+					molestiae eius fugiat accusamus repellat obcaecati ut corrupti necessitatibus itaque voluptates nulla
+					similique sit quasi assumenda? Doloremque voluptates illum voluptatibus doloribus totam? Tempore, iure
+					perferendis? Cumque minus repudiandae quam earum sequi. Laborum eius ipsam cupiditate dolorum ut tempora
+					accusamus doloribus delectus impedit magnam incidunt repudiandae adipisci cum, quisquam accusantium saepe illo
+					in officiis obcaecati libero exercitationem dicta. Qui rerum tenetur enim iure blanditiis sit voluptates
+					ratione reprehenderit quas explicabo pariatur suscipit eum fugit facilis architecto perspiciatis, odit minima
+					incidunt natus hic necessitatibus perferendis molestiae alias placeat. Corporis ipsum quod, mollitia eaque
+					delectus numquam in aliquid nam vel odio et animi expedita facilis neque eius tempora consectetur enim
+					dignissimos? Odio beatae incidunt corrupti nobis? Consequuntur vero, dolorem modi suscipit ratione quibusdam
+					quos? At inventore eaque beatae minus praesentium voluptas temporibus. Nostrum, quia in aspernatur accusamus
+					optio quam eos temporibus voluptatem vitae accusantium iste architecto qui ut. Explicabo omnis vitae doloribus
+					eos dicta. Minus quisquam enim odit labore amet dolorem perferendis veniam exercitationem in maiores. Quis in
+					molestiae ut, minus excepturi ratione quae voluptate ipsa, saepe, nam maiores ad provident obcaecati amet
+					dolorem molestias debitis consectetur? Nulla consectetur exercitationem modi provident nisi unde aut illo!
+				</p>
+				<button class="btn_submit" id="btnSubmit">
+					Open!
+				</button>
+			</div>
+		</div>
+	</div>
+	<script src="./index.js"></script>
+</body>
+
+</html>
+
+<!-- 
+1단계 - 버튼 클릭시 레이어팝업이 뜨고, 팝업내의 닫기버튼이나 x를 클릭시 닫힙니다.
+평소 설계하신대로 css와 js의 적절한 조화가 필요합니다.
+2단계 - 실제 프로젝트 시에는 기획에 따라 다르겠지만, 화면 중앙에 뜨고, 아래에 검정 투명바탕이 깔리게 합니다.
+3단계(선택) : 팝업이 뜨고 닫힐 때 적절한 애니메이션을 줍니다.
+4단계(선택) - 팝업이 떴을때에는 스크롤이 안되게 제어합니다.
+5단계(선택) - 팝업 이외의 곳을 클릭해도 닫히게 해봅니다.
+6단계(선택) : 다양한 상황 대처 
+예: 팝업 body부분의 내용이 길어지면 스크롤이 되고, max-height가 적용되어있는데, 높이가 작은 모바일 (아이폰6 기준, 높이 667px이하)에서만 max-height를 따로 적용합니다. 
+
+나중에 pc : 크롬, 사파리, 파이어폭스, mobile: ios, android 에서 테스트하면서 어떤점에 주의하여야 하는지 체크해 보셔도 많은 도움이 됩니다. :) 
+검색시 자료로 남기면 더더욱 좋아요~ 본인 깃헙이나 블로그 혹은 이 곳 ^^ 
+
+ -->

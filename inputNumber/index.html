@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>inputNumber</title>
+	<style>
+		body {
+			margin: 50px auto;
+			text-align: center;
+			color: #262626;
+		}
+
+		div[class*="area_"] {
+			font-size: 0;
+		}
+
+		button[class*="btn_"] {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			-webkit-appearance: none;
+			font-size: 16px;
+			color: #262626;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			box-sizing: border-box;
+		}
+
+		p[class*="txt_"] {
+			font-size: 14px;
+		}
+
+		.inp_text {
+			height: 40px;
+			padding: 0 15px;
+			border: none;
+			font-size: 14px;
+			color: #262626;
+		}
+
+		button:focus,
+		input:focus {
+			outline: 0 none;
+		}
+
+		button:disabled,
+		input:disabled {
+			color: #ddd
+		}
+
+		input::placeholder,
+		input::-webkit-input-placeholder,
+		input::-ms-input-placeholder {
+			color: #ddd
+		}
+	</style>
+</head>
+
+<body>
+	<div class="area_number">
+		<button type="button" class="btn_minus" id="btnMinus">-</button>
+		<input type="text" class="inp_text" id="inpText" placeholder="input Number" value="0">
+		<button type="button" class="btn_plus" id="btnPlus">+</button>
+	</div>
+	<p class="txt_para" id="textPara"></p>
+	<script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Practice_array</title>
+	<style>
+		body {
+			color: #262626;
+			padding: 30px;
+		}
+
+		button[class*='btn'] {
+			display: inline-block;
+			padding: 10px 15px;
+			font-size: 12px;
+			background: #fefefe;
+			border-radius: 3px;
+			border: 1px solid #eee;
+			vertical-align: top;
+		}
+
+		.txt_result {
+			display: block;
+			padding: 15px 10px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<button class="btn_result" data-result-type='min'>
+		최소값
+	</button>
+	<button class="btn_result" data-result-type='max'>
+		최대값
+	</button>
+	<button class="btn_result" data-result-type='avg'>
+		평균값
+	</button>
+	<button class="btn_result" data-result-type='odd'>
+		홀수값
+	</button>
+	<span class="txt_result"></span>
+
+	<script src="./index.js"></script>
+</body>
+
+</html>

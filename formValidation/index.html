@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Form Validation</title>
+	<style>
+		body {
+			margin: 40px auto;
+			text-align: center;
+			color: #262626;
+		}
+
+		input,
+		textarea,
+		button {
+			display: block;
+			width: 100%;
+			font-size: 13px;
+			-webkit-appearance: none;
+		}
+
+		button:focus,
+		input:focus,
+		textarea:focus {
+			outline: 0 none;
+			background: transparent;
+		}
+
+		input[type="text"] {
+			padding: 5px 5px 2px 5px;
+			border: none;
+			border-bottom: 1px solid #999;
+		}
+
+		button[id*="btn"] {
+			padding: 10px 0;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-weight: bold;
+		}
+
+		p[class*="text"] {
+			display: none;
+			font-size: 12px;
+			color: #FF9B87;
+		}
+
+		label {
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		strong[class*="title"] {
+			display: block;
+			margin-bottom: 20px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		span[class*="desc"] {
+			display: block;
+			padding-top: 2px;
+			font-size: 11px;
+			font-weight: lighter;
+			color: #999;
+		}
+
+		.wrap_form {
+			display: inline-block;
+			min-width: 450px;
+			padding: 20px 25px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			border-radius: 11px;
+		}
+
+		.wrap_form .list_form .item_form {
+			text-align: left;
+			font-size: 0;
+		}
+
+		.list_form .item_form+.item_form {
+			padding-top: 15px;
+		}
+
+		.list_form .item_form .user_info.error {
+			border-bottom: 1px dotted #FF9B87;
+		}
+
+		.list_form .item_form .user_info.error~.text_para {
+			display: block
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap_form">
+		<strong class="text_title">
+			Input Box
+		</strong>
+		<form action="" id="basicForm">
+			<div class="list_form">
+				<div class="item_form">
+					<label for="name">Name
+						<span class="text_desc">(필수, 3글자 이상)</span>
+					</label>
+					<input type="text" id="userName" name="name" class="user_info user_name">
+					<p class="text_para para_name">내용을 입력해주세요</p>
+				</div>
+				<div class="item_form">
+					<label for="age">Age
+						<span class="text_desc">(필수, 최소 20세)</span>
+					</label>
+					<input type="text" id="userAge" name="age" class="user_info user_age">
+					<p class="text_para para_age">내용을 입력해주세요</p>
+				</div>
+				<div class="item_form">
+					<label for="email">E-mail
+						<span class="text_desc">(필수 입력)</span>
+					</label>
+					<input type="text" id="userEmail" name="email" class="user_info user_email">
+					<p class="text_para para_email">내용을 입력해주세요</p>
+				</div>
+				<div class="item_form">
+					<label for="weight">Weight
+						<span class="text_desc">(필수, 50세 이상)</span>
+					</label>
+					<input type="text" id="userWeight" name="weight" class="user_info user_weight">
+					<p class="text_para para_weight">내용을 입력해주세요</p>
+				</div>
+				<div class="item_form">
+					<button type="submit" id="btnSubmit">Submit</button>
+				</div>
+			</div>
+	</div>
+	</form>
+	</div>
+
+
+	<script type="module" src="./index.js"></script>
+</body>
+
+</html>
